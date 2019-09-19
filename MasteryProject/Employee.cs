@@ -11,10 +11,32 @@ namespace MasteryProject
         int Salary { get; set; }
         bool PayStatus { get; set; }
 
+        public Employee()
+        {
+
+        }
+
+        public Employee(string name, string number, int salary, bool paystatus)
+        {
+            Name = name;
+            Number = number;
+            Salary = salary;
+            PayStatus = paystatus;
+        }
+
+        public virtual void AddEmployee (string name, string number, int salary, bool paystatus)
+        {
+            Name = name;
+            Number = number;
+            Salary = salary;
+            PayStatus = paystatus;
+        }
+
      public void PayEmployee()
         {
-           bool PayEmployee = false;
-
+            PayStatus = true;
+            Console.WriteLine("You've been paid for this week!");
+            
         }
     }
 }

@@ -8,9 +8,10 @@ namespace MasteryProject
     {
         string Speciality { get; set; }
 
-        public Doctor()
+        public override void AddEmployee(string name, string number, int salary, bool paystatus)
         {
-            
+            base.AddEmployee(name, number, speciality, salary, paystatus);
+            Speciality = speciality;
         }
 
         
