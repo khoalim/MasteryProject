@@ -4,28 +4,37 @@ using System.Text;
 
 namespace MasteryProject
 {
-    public abstract class Employee
+    public class Employee
     {
         public string Name { get; set; }
         public string Number { get; set; }
         public int Salary { get; set; }
         public bool PayStatus { get; set; }
 
+
         public Employee()
         {
 
         }
 
-        public Employee(string name, string number, int salary)
+        public Employee(string name, string number, int salary, bool paystatus)
         {
             Name = name;
-            Number = number;            
+            Number = number;
+            Salary = salary;
+            PayStatus = false;
         }
 
-        public void PayEmployee()
+        public virtual void PayEmployee()
         {
-            PayStatus = false;
-            Console.WriteLine("You've been paid for this week!");
+            if (PayStatus == false)
+            {
+                Console.WriteLine("Paid");
+            }
+            else if (PayStatus == !PayStatus)
+            {
+              Console.WriteLine("Not Paid");
+            }                 
             
         }
 
@@ -37,6 +46,11 @@ namespace MasteryProject
         public virtual void CarePatient(Patient patient)
         {
 
+        }
+
+        public virtual void ShowInfo()
+        {
+            Console.WriteLine($"{Name}, {Number}, {Salary}");
         }
 
         

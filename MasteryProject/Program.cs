@@ -9,10 +9,12 @@ namespace MasteryProject
         {
 
             Hospital hospital = new Hospital();
+            hospital.AddEmployees();
+            hospital.AddPatients();
 
             Console.WriteLine("Welcome to University Clinic Hospital!");
             Console.WriteLine("**************************************");
-            Console.WriteLine("What would you like to do?");          
+            Console.WriteLine("What would you like to do?");       
                   
             
 
@@ -31,10 +33,25 @@ namespace MasteryProject
                     Console.Clear();
                     Console.WriteLine("The hospital employees are:");
                     hospital.ShowAllEmployees();
-                    Console.WriteLine("\n1. Select an employee to pay");
-                    Console.WriteLine("\n2. Select a receptionist to take a call");
-                    Console.WriteLine("\n3. Select a janitor to sweep the floors");
-                    
+                    //Console.WriteLine("\nPress 3. Select a receptionist to take a call");
+                    //Console.WriteLine("\nPress 4. Select a janitor to sweep the floors");
+                    Console.WriteLine("\nPress 3. Pay Employees");
+                    Console.WriteLine("\nPress 0. Return to Main Menu");
+                   
+
+                    switch (userInput)
+                    {
+                        case 3:
+                        hospital.AllPayEmployees();
+                        break;
+                        
+                        //Console.ReadLine();
+ 
+                    }
+
+
+
+
                 
 
                 }
@@ -43,7 +60,8 @@ namespace MasteryProject
                     Console.Clear();
                     Console.WriteLine("The hospital patients are:");
                     hospital.ShowAllPatients();
-                    Console.WriteLine("\n1. View patient status");                    
+                    Console.WriteLine("\n1. View patient status");
+                    //Console.WriteLine("\n2. Select a nurse);
                 }
 
             }

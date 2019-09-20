@@ -10,6 +10,11 @@ namespace MasteryProject
         public int HealthLevel { get; set; }
         public string Name { get; set; }
 
+        public Patient()
+        {
+
+        }
+
         public Patient(string name, int bloodlevel, int healthlevel)
         {
             BloodLevel = 20;
