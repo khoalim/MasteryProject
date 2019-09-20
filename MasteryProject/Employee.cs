@@ -4,39 +4,42 @@ using System.Text;
 
 namespace MasteryProject
 {
-    public class Employee
+    public abstract class Employee
     {
-        string Name { get; set; }
-        string Number { get; set; }
-        int Salary { get; set; }
-        bool PayStatus { get; set; }
+        public string Name { get; set; }
+        public string Number { get; set; }
+        public int Salary { get; set; }
+        public bool PayStatus { get; set; }
 
         public Employee()
         {
 
         }
 
-        public Employee(string name, string number, int salary, bool paystatus)
+        public Employee(string name, string number, int salary)
         {
             Name = name;
-            Number = number;
-            Salary = salary;
-            PayStatus = paystatus;
+            Number = number;            
         }
 
-        public virtual void AddEmployee (string name, string number, int salary, bool paystatus)
+        public void PayEmployee()
         {
-            Name = name;
-            Number = number;
-            Salary = salary;
-            PayStatus = paystatus;
-        }
-
-     public void PayEmployee()
-        {
-            PayStatus = true;
+            PayStatus = false;
             Console.WriteLine("You've been paid for this week!");
             
         }
+
+        public virtual void DrawBlood(Patient patient)
+        {
+
+        }
+
+        public virtual void CarePatient(Patient patient)
+        {
+
+        }
+
+        
+
     }
 }

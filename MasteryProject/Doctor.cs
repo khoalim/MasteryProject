@@ -6,17 +6,22 @@ namespace MasteryProject
 {
     public class Doctor : Employee
     {
-        string Speciality { get; set; }
+        public string Speciality { get; set; }
+        
 
-        public override void AddEmployee(string name, string number, int salary, bool paystatus)
+       public Doctor(string name, string number, int salary, string speciality) : base(name, number, salary)
         {
-            base.AddEmployee(name, number, speciality, salary, paystatus);
-            Speciality = speciality;
+            Speciality = Speciality;            
         }
 
-        
-       
+        public override void DrawBlood(Patient patient)
+        {
+            patient.BloodLevel -= 5;            
+        }
 
-
+        public override void CarePatient(Patient patient)
+        {
+            patient. HealthLevel += 5;            
+        }
     }
 }

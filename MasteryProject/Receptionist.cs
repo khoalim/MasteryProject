@@ -6,11 +6,23 @@ namespace MasteryProject
 {
     class Receptionist : Employee
     {
-        bool PhoneStatus { get; set; }
+        public bool PhoneStatus { get; set; }
+       
 
-        public Receptionist()
+        public Receptionist (string name, string number, int salary) : base(name, number, salary)
+        {
+            
+        }
+
+        public override void DrawBlood(Patient patient)
+        {
+            Console.WriteLine("This employee is not authorized to work on patients!");
+        }
+
+        public override void CarePatient(Patient patient)
         {
 
+            Console.WriteLine("This employee is not authorized to work on patients!");
         }
     }
 }
