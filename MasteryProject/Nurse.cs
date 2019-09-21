@@ -32,7 +32,7 @@ namespace MasteryProject
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Nurse:{Name}, {Number}, ${Salary}, {NumberofPatients} patients");
+            Console.WriteLine($"Nurse: {Name}, {Number}, ${Salary}, {NumberofPatients} patients");
         }
 
         

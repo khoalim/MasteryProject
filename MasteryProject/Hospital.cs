@@ -7,6 +7,8 @@ namespace MasteryProject
     public class Hospital
 
     {
+        Nurse nurse = new Nurse();
+        Doctor doctor = new Doctor();
 
         public void MainMenu()
         {
@@ -14,9 +16,9 @@ namespace MasteryProject
             Console.WriteLine("**************************************");
 
             Console.WriteLine("MAIN MENU:");
-            Console.WriteLine("\nPress '1' for list of Hospital employees");
-            Console.WriteLine("\nPress '2' for list of Hospital patients");
-            Console.WriteLine("\nPress '3' to Exit Hospital");
+            Console.WriteLine("\nPress 'A' for list of Hospital employees");
+            Console.WriteLine("\nPress 'B' for list of Hospital patients");
+            Console.WriteLine("\nPress 'C' to Exit Hospital");
         }
 
         //For Employees
@@ -49,8 +51,15 @@ namespace MasteryProject
                 employee.ShowInfo();
                 e++;
             }
+        }            
 
-        }          
+        public void TasksOnEmployees()
+        {
+            Console.WriteLine("\nPress 'R' to view Receptionists' Status");
+            Console.WriteLine("Press 'J' to view Janitors' Status");
+            Console.WriteLine("Press 'P' to view Payroll Status");
+            Console.WriteLine("\nPress 'M' to return to Main Menu");
+        }
         
         //For Patients
         public List<Patient> hospitalPatients = new List<Patient>();
@@ -70,12 +79,57 @@ namespace MasteryProject
             hospitalPatients.Add(new Patient("John Smith", 20, 10));
         }
 
+        public void TasksOnPatients()
+        {
+            Console.WriteLine("\nPress 'DB' for Doctor to draw patients' blood");
+            Console.WriteLine("Press 'DC' for Doctor to care for patients");
+            Console.WriteLine("Press 'NB' for Nurse to draw patients' blood");
+            Console.WriteLine("Press 'NC' for Nurse to care for patients");
+            Console.WriteLine("\nPress 'M' to return to Main Menu");
+        }
+
+        public void DoctorDrawBloodforIndividualPatient()
+        {
+            Console.WriteLine("\nPlease select a Patient");
+            Patient patients = hospitalPatients[Convert.ToInt32(Console.ReadLine()) - 1];
+            doctor.DrawBlood(patients);
+            Console.Clear();
+        }
+
+        public void DoctorCareforIndividualPatient()
+        {
+            Console.WriteLine("\nPlease select a Patient");
+            Patient patients = hospitalPatients[Convert.ToInt32(Console.ReadLine()) - 1];
+            doctor.CarePatient(patients);
+            Console.Clear();
+        }
+
+        public void NurseDrawBloodforIndividualPatient()
+        {
+            Console.WriteLine("\nPlease select a Patient");
+            Patient patients = hospitalPatients[Convert.ToInt32(Console.ReadLine()) - 1];
+            nurse.DrawBlood(patients);
+            Console.Clear();
+        }
+
+        public void NurseCareforIndividualPatient()
+        {            
+            Console.WriteLine("\nPlease select a Patient");           
+            Patient patients = hospitalPatients[Convert.ToInt32(Console.ReadLine()) - 1];
+            nurse.CarePatient(patients);
+            Console.Clear();
+        }       
         
         
-    } 
+
+        
+
+    }
+
+} 
 
     
-    }           
+       
     
 
     

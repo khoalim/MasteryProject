@@ -12,7 +12,6 @@ namespace MasteryProject
 
         public Patient()
         {
-
         }
 
         public Patient(string name, int bloodlevel, int healthlevel)
@@ -22,8 +21,11 @@ namespace MasteryProject
             Name = name;
         }
 
-         
-        
-       
+        public void ReturnToPatientList()
+        {
+            Console.WriteLine("\nPress 'M' To return to Main Menu");
+            Console.WriteLine("Press 'B' To return to Patient List");
+        }
+
     }
 }

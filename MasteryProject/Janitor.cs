@@ -33,7 +33,7 @@ namespace MasteryProject
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Janitor:{Name}, {Number}, ${Salary}");
+            Console.WriteLine($"Janitor: {Name}, {Number}, ${Salary}");
         }
         
         public void CheckSweepingStatus()
@@ -48,8 +48,8 @@ namespace MasteryProject
 
             if (Sweeping % 2 == 0)
             {
-                Console.WriteLine("All the janitors are not sweeping");
-                Console.WriteLine("\nTo make janitors sweep up press 'R'");
+                Console.WriteLine("All the janitors are available");
+                Console.WriteLine("\nTo make janitors sweep floors press 'J'");
                 Console.WriteLine("\nPress 'M' to return to Main Menu");
             }
         }

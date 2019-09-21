@@ -32,7 +32,7 @@ namespace MasteryProject
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Receptionist:{Name}, {Number}, ${Salary}");
+            Console.WriteLine($"Receptionist: {Name}, {Number}, ${Salary}");
         }
         
         public void CheckPhoneStatus()

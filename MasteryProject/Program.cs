@@ -9,15 +9,15 @@ namespace MasteryProject
         {
 
             Hospital hospital = new Hospital();
-            Employee employee = new Employee();
-            hospital.AddEmployees();
-            hospital.AddPatients();            
-            hospital.MainMenu();
-            Doctor Doctor = new Doctor();
+            Employee employee = new Employee();            
+            Doctor doctor = new Doctor();
             Nurse nurse = new Nurse();
             Receptionist receptionist = new Receptionist();
             Janitor janitor = new Janitor();
             Patient patient = new Patient();
+            hospital.AddEmployees();
+            hospital.AddPatients();
+            hospital.MainMenu();
 
             bool inHospitalMenu = true;
             
@@ -28,26 +28,14 @@ namespace MasteryProject
 
 
                 switch (userInput)
-                {
-                    case "m":
-                        Console.Clear();
-                        hospital.MainMenu();
-                        break;
-
-                    case "1":
+                {                    
+                    case "a":
                         Console.Clear();
                         Console.WriteLine("The hospital employees are:");
+                        Console.WriteLine(); //<-- Here to add some space btwn heading and list
                         hospital.ShowAllEmployees();
-
-                        Console.WriteLine("\nPress 'P' to view Payroll Status");
-                        Console.WriteLine("\nPress 'J' to view Janitors' Status");
-                        Console.WriteLine("\nPress 'R' to view Receptionists' Status");
-                        Console.WriteLine("\nPress 'M' to return to Main Menu");
-                        break;
-
-                    case "p":
-                        employee.PayEmployee();
-                        break;
+                        hospital.TasksOnEmployees();                        
+                        break;                               
 
                     case "r":
                         receptionist.CheckPhoneStatus();
@@ -57,28 +45,64 @@ namespace MasteryProject
                         janitor.CheckSweepingStatus();
                         break;
 
-                    case "2":
+                    case "p":
+                        employee.PayEmployee();
+                        break;
+
+                    case "m":
+                        Console.Clear();
+                        hospital.MainMenu();
+                        break;
+
+
+                    case "b":
                         Console.Clear();
                         Console.WriteLine("The hospital patients are:");
+                        Console.WriteLine(); //<-- Here to add some space btwn heading and list
                         hospital.ShowAllPatients();
+                        hospital.TasksOnPatients();
+                        break;
 
-                        Console.WriteLine("\nPress 'DB' for Doctor to draw patients' blood");
-                        Console.WriteLine("\nPress 'DC for Doctor to care for patients");
-                        Console.WriteLine("\nPress 'NB' for Nurse to draw patients' blood");
-                        Console.WriteLine("\nPress 'NC' for Nurse to care for patients");
-                        Console.WriteLine("\nPress 'M' to return to Main Menu");
+                    case "db":
+                        Console.Clear();
+                        hospital.ShowAllPatients();
+                        hospital.DoctorDrawBloodforIndividualPatient();
+                        Console.WriteLine("Your patients' new stats are:");
+                        hospital.ShowAllPatients();
+                        patient.ReturnToPatientList();
+                        break;
+                        
+
+                    case "dc":
+                        Console.Clear();
+                        hospital.ShowAllPatients();
+                        hospital.DoctorCareforIndividualPatient();
+                        Console.WriteLine("Your patients' new stats are:");
+                        hospital.ShowAllPatients();
+                        patient.ReturnToPatientList();
                         break;
 
                     case "nb":
                         Console.Clear();
-                        nurse.DrawBlood(patient);
-                        Console.WriteLine("\nYour patients' new stats are:");
                         hospital.ShowAllPatients();
+                        hospital.NurseDrawBloodforIndividualPatient();
+                        Console.WriteLine("Your patients' new stats are:");
+                        hospital.ShowAllPatients();
+                        patient.ReturnToPatientList();
+                        break;
+                       
 
+                    case "nc":
+                        Console.Clear();
+                        hospital.ShowAllPatients();
+                        hospital.NurseCareforIndividualPatient();
+                        Console.WriteLine("Your patients' new stats are:");
+                        hospital.ShowAllPatients();
+                        patient.ReturnToPatientList();
                         break;
                                             
 
-                    case "3":
+                    case "c":
                         inHospitalMenu = false;
                         Console.WriteLine("GoodBye! Thanks for Visiting!");
                         break;
