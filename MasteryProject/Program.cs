@@ -9,63 +9,86 @@ namespace MasteryProject
         {
 
             Hospital hospital = new Hospital();
+            Employee employee = new Employee();
             hospital.AddEmployees();
-            hospital.AddPatients();
+            hospital.AddPatients();            
+            hospital.MainMenu();
+            Doctor Doctor = new Doctor();
+            Nurse nurse = new Nurse();
+            Receptionist receptionist = new Receptionist();
+            Janitor janitor = new Janitor();
+            Patient patient = new Patient();
 
-            Console.WriteLine("Welcome to University Clinic Hospital!");
-            Console.WriteLine("**************************************");
-            Console.WriteLine("What would you like to do?");       
-                  
+            bool inHospitalMenu = true;
             
-
-            bool inMenu = true;
-            
-            do
+            while (inHospitalMenu)
             {
-                Console.WriteLine("\nPress '1' for list of Hospital employees");
-                Console.WriteLine("\nPress '2' for list of Hospital patients");
+               
+                string userInput= Console.ReadLine().ToLower();
 
-                int userInput = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
 
-                if (userInput == 1)
+                switch (userInput)
                 {
-                    Console.Clear();
-                    Console.WriteLine("The hospital employees are:");
-                    hospital.ShowAllEmployees();
-                    //Console.WriteLine("\nPress 3. Select a receptionist to take a call");
-                    //Console.WriteLine("\nPress 4. Select a janitor to sweep the floors");
-                    Console.WriteLine("\nPress 3. Pay Employees");
-                    Console.WriteLine("\nPress 0. Return to Main Menu");
-                   
-
-                    switch (userInput)
-                    {
-                        case 3:
-                        hospital.AllPayEmployees();
+                    case "m":
+                        Console.Clear();
+                        hospital.MainMenu();
                         break;
-                        
-                        //Console.ReadLine();
- 
-                    }
 
+                    case "1":
+                        Console.Clear();
+                        Console.WriteLine("The hospital employees are:");
+                        hospital.ShowAllEmployees();
 
+                        Console.WriteLine("\nPress 'P' to view Payroll Status");
+                        Console.WriteLine("\nPress 'J' to view Janitors' Status");
+                        Console.WriteLine("\nPress 'R' to view Receptionists' Status");
+                        Console.WriteLine("\nPress 'M' to return to Main Menu");
+                        break;
 
+                    case "p":
+                        employee.PayEmployee();
+                        break;
 
-                
+                    case "r":
+                        receptionist.CheckPhoneStatus();
+                        break;
 
+                    case "j":
+                        janitor.CheckSweepingStatus();
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("The hospital patients are:");
+                        hospital.ShowAllPatients();
+
+                        Console.WriteLine("\nPress 'DB' for Doctor to draw patients' blood");
+                        Console.WriteLine("\nPress 'DC for Doctor to care for patients");
+                        Console.WriteLine("\nPress 'NB' for Nurse to draw patients' blood");
+                        Console.WriteLine("\nPress 'NC' for Nurse to care for patients");
+                        Console.WriteLine("\nPress 'M' to return to Main Menu");
+                        break;
+
+                    case "nb":
+                        Console.Clear();
+                        nurse.DrawBlood(patient);
+                        Console.WriteLine("\nYour patients' new stats are:");
+                        hospital.ShowAllPatients();
+
+                        break;
+                                            
+
+                    case "3":
+                        inHospitalMenu = false;
+                        Console.WriteLine("GoodBye! Thanks for Visiting!");
+                        break;
+                                               
+                    default:
+                        Console.WriteLine("Invalid Entry. Please Try Again!");
+                        break;
                 }
-                else if (userInput == 2)
-                {
-                    Console.Clear();
-                    Console.WriteLine("The hospital patients are:");
-                    hospital.ShowAllPatients();
-                    Console.WriteLine("\n1. View patient status");
-                    //Console.WriteLine("\n2. Select a nurse);
-                }
 
-            }
-            while (inMenu);
+            }           
                                              
         }
         

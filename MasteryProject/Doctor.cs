@@ -14,7 +14,7 @@ namespace MasteryProject
         }
 
 
-        public Doctor(string name, string number, int salary, string speciality) : base(name, number, salary, false)
+        public Doctor(string name, string number, int salary, string speciality) : base(name, number, salary)
         {
             Speciality = speciality;
         }
@@ -34,18 +34,8 @@ namespace MasteryProject
             Console.WriteLine($"Doctor: {Name}, {Number}, ${Salary}, {Speciality}");
 
         }
-
-        public override void PayEmployee()
-        {
-            if (PayStatus == false)
-            {
-                Console.WriteLine("Paid");
-            }
-            else if (PayStatus == !PayStatus)
-            {
-                Console.WriteLine("Not Paid");
-            }
+        
         }
     }
 
-}
+

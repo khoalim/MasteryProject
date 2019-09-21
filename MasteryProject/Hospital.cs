@@ -7,7 +7,20 @@ namespace MasteryProject
     public class Hospital
 
     {
-       public List<Employee> hospitalEmployees = new List<Employee>();
+
+        public void MainMenu()
+        {
+            Console.WriteLine("Welcome to University Clinic Hospital!");
+            Console.WriteLine("**************************************");
+
+            Console.WriteLine("MAIN MENU:");
+            Console.WriteLine("\nPress '1' for list of Hospital employees");
+            Console.WriteLine("\nPress '2' for list of Hospital patients");
+            Console.WriteLine("\nPress '3' to Exit Hospital");
+        }
+
+        //For Employees
+        public List<Employee> hospitalEmployees = new List<Employee>();
 
 
         public void AddEmployees()
@@ -20,14 +33,13 @@ namespace MasteryProject
             hospitalEmployees.Add(new Nurse("Carol Hathaway", "N202", 50000, 2));
             hospitalEmployees.Add(new Nurse("Christina Hawthorn", "N203", 50000, 3));
 
-            hospitalEmployees.Add(new Receptionist("Peggy Olson", "R301", 45000, false));
-            hospitalEmployees.Add(new Receptionist("Pam Beesly", "R302", 45000, false));
+            hospitalEmployees.Add(new Receptionist("Peggy Olson", "R301", 45000));
+            hospitalEmployees.Add(new Receptionist("Pam Beesly", "R302", 45000));
 
-            hospitalEmployees.Add(new Janitor("Groundskeeper Willie", "J401", 40000, false));
-            hospitalEmployees.Add(new Janitor("Will Hunting", "J402", 40000, false));            
+            hospitalEmployees.Add(new Janitor("Groundskeeper Willie", "J401", 40000));
+            hospitalEmployees.Add(new Janitor("Will Hunting", "J402", 40000));            
         }
-
-
+        
         public void ShowAllEmployees()
         {
             int e = 1;
@@ -35,10 +47,12 @@ namespace MasteryProject
             {
                 Console.Write($"{e}.");
                 employee.ShowInfo();
-                //Console.WriteLine($"{e}.{employee.Name}, {employee.Number}, {employee.Salary}");
                 e++;
             }
-        }
+
+        }          
+        
+        //For Patients
         public List<Patient> hospitalPatients = new List<Patient>();
 
         public void ShowAllPatients()
@@ -46,7 +60,7 @@ namespace MasteryProject
             int e = 1;
             foreach (Patient patient in hospitalPatients)
             {                
-                Console.WriteLine($"{e}.{patient.Name}, {patient.BloodLevel}, {patient.HealthLevel}");
+                Console.WriteLine($"{e}.{patient.Name}, Blood Level:{patient.BloodLevel}, Health Level:{patient.HealthLevel}");
                 e++;
             }
         }
@@ -55,24 +69,14 @@ namespace MasteryProject
             hospitalPatients.Add(new Patient("Jane Doe", 20, 10));
             hospitalPatients.Add(new Patient("John Smith", 20, 10));
         }
-        public void AllPayEmployees()
-        {
-            int p = 1;
-            foreach (Employee employee in hospitalEmployees)
-            {
-                Console.WriteLine($"{p}.");
-                employee.PayEmployee();
-                p++;
-                Console.ReadLine();
-            }
-        }
-       
 
+        
+        
+    } 
 
-
-    }  
-           
+    
+    }           
     
 
     
-}
+

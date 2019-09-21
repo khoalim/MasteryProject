@@ -6,52 +6,58 @@ namespace MasteryProject
 {
     public class Janitor : Employee
     {
-        bool SweepingStatus { get; set; }
+        
+        public int Sweeping { get; set; }
 
 
-        public Janitor(string name, string number, int salary, bool SweepingStatus) : base(name, number, salary, false)
+        public Janitor(string name, string number, int salary) : base(name, number, salary)
         {
-            SweepingStatus = false;
+           
         }
 
-        public override void DrawBlood(Patient patient)
+        public Janitor()
         {
-            Console.WriteLine("This employee is not authorized to work on patients!");
-        }
+            Sweeping = 0;
+        }      
 
-        public override void CarePatient(Patient patient)
-        {
-            Console.WriteLine("This employee is not authorized to work on patients!");
-        }
+
+        ////public override void DrawBlood(Patient patient)
+        ////{
+        ////    Console.WriteLine("This employee is not authorized to work on patients!");
+        ////}
+
+        ////public override void CarePatient(Patient patient)
+        ////{
+        ////    Console.WriteLine("This employee is not authorized to work on patients!");
+        ////}
 
         public override void ShowInfo()
         {
-            Console.WriteLine($"Janitor:{Name}, {Number}, ${Salary}, {SweepingStatus}");
+            Console.WriteLine($"Janitor:{Name}, {Number}, ${Salary}");
         }
-
+        
         public void CheckSweepingStatus()
         {
-            if (SweepingStatus == false)
+            Console.Clear();
+            Sweeping++;
+            if (Sweeping % 2 == 1)
             {
-                Console.WriteLine("Not Sweeping");
+                Console.WriteLine("All the janitors are sweeping");
+                Console.WriteLine("\nPress 'M' to return to Main Menu");
             }
-            else if (SweepingStatus == true)
+
+            if (Sweeping % 2 == 0)
             {
-                Console.WriteLine("Sweeping");
+                Console.WriteLine("All the janitors are not sweeping");
+                Console.WriteLine("\nTo make janitors sweep up press 'R'");
+                Console.WriteLine("\nPress 'M' to return to Main Menu");
             }
         }
 
-            public override void PayEmployee()
-        {
-            if (PayStatus == false)
-            {
-                Console.WriteLine("Paid");
-            }
-            else if (PayStatus == !PayStatus)
-            {
-                Console.WriteLine("Not Paid");
-
-            }
-        }
     }
 }
+    
+       
+    
+
+
